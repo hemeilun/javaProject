@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ResfulDemo:war">
+    <output-path>$PROJECT_DIR$/ResfulDemo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ResfulDemo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ResfulDemo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ResfulDemo:war exploded" />
+    </root>
+  </artifact>
+</component>
