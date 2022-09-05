@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mybatis.mapper.DeptMapper">
+
+    <resultMap id="deptStepMap" type="Dept">
+        <id property="did" column="did"></id>
+        <result property="deptName" column="dept_name"></result>
+        <collection property="empList" column="did"
+                    select="com.mybatis.mapper.EmpMapper.findEmpByDeptId">
+        </collection>
+    </resultMap>
+
+    <!--public Dept findDeptById(@Param("did") int id);-->
+    <select id="findDeptById" resultMap="deptStepMap">
+          <!--出错三：表名写成emp，导致查询错误-->
+          select * from dept where did = #{did}
+    </select>
+
+</mapper>
