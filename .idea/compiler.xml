@@ -2,18 +2,37 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot" />
+        <module name="springbootWeb1" />
         <module name="SpringMVC" />
+        <module name="MyBatis1" />
+        <module name="algorithmLearn1" />
         <module name="ResfulDemo" />
+        <module name="myblog" />
+        <module name="MyBatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="algorithmLearn1" target="14" />
+      <module name="MyBatis" target="14" />
+      <module name="MyBatis1" target="14" />
+      <module name="myblog" target="14" />
       <module name="ResfulDemo" target="14" />
+      <module name="SpringBoot" target="14" />
+      <module name="springbootWeb1" target="14" />
       <module name="SpringMVC" target="14" />
-      <module name="untitled" target="1.5" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBoot" options="-parameters" />
+      <module name="myblog" options="-parameters" />
+      <module name="springbootWeb1" options="-parameters" />
+    </option>
   </component>
 </project>

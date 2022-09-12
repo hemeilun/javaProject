@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -18,12 +19,16 @@ public class mainController {
     private userdaoimpl userdao;
 
     @RequestMapping(value = "/querry",method = RequestMethod.GET)
-    public String querry(){
+    public ModelAndView querry(){
         List<User> querry = userdao.querry();
-        System.out.println(querry);
 
-        //userdao.querry();
-        return "index";
+        ModelAndView mav = new ModelAndView();
+        //向请求域共享数据
+        mav.addObject("querryList", querry);
+        //设置视图，实现页面跳转
+        mav.setViewName("userShow");
+
+        return mav;
 
     }
 

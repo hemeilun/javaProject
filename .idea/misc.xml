@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/myblog" />
     <file type="web" url="file://$PROJECT_DIR$/ResfulDemo" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVC" />
   </component>
@@ -10,8 +11,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/MyBatis/pom.xml" />
         <option value="$PROJECT_DIR$/ResfulDemo/pom.xml" />
         <option value="$PROJECT_DIR$/SpringMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/MyBatis1/pom.xml" />
+        <option value="$PROJECT_DIR$/algorithmLearn1/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootWeb1/pom.xml" />
+        <option value="$PROJECT_DIR$/myblog/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -20,5 +27,5 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="false" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

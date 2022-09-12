@@ -36,6 +36,9 @@
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:annotation-driven/>
 
+    <!--开放对静态资源的访问-->
+    <mvc:default-servlet-handler/>
+
 
     <!--引入外部属性文件-->
     <context:property-placeholder location="classpath:druid.properties"></context:property-placeholder>

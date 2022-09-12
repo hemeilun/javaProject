@@ -8,4 +8,12 @@
 3、在通过maven的lifecycle打为jar后，通过命令行直接执行jar包发现报错（Unsupported major minor version 52.0 (unable to load class)），
    经查后发现是由于打包项目用的是jdk14，而命令行运行的jdk8，报错原因是：低版本jdk无法运行包含高版本输出文件的jar包；这时我又发现通过命令行
    输入java -version和javac -version输出的jdk版本不一致，我才知道电脑中有多个jdk，由此解决方案，只需让javac与java显示版本均为
-   jdk14即可解决，经查找可以删除C:\ProgramData\Oracle\Java\javapath下的java.exe，javaw.exe，javaws.exe即可
+   jdk14即可解决，经查找可以删除C:\ProgramData\Oracle\Java\javapath下的java.exe，javaw.exe，javaws.exe
+
+
+
+2022/9/11
+1、高版本mysql可以向低版本兼容，但低版本的驱动无法连接高版本的数据库
+2、测试类中找不到自动装配的bean，要保证测试类包名与运行类处于同一包名下，比如这里的运行里面时com.boot
+   那测试类中也要在com.boot下
+3、使用Junit5进行测试时，需要导入的@Test为import org.junit.jupiter.api.Test里面的

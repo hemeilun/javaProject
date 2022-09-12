@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyBatis/MyBatis.iml" filepath="$PROJECT_DIR$/MyBatis/MyBatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyBatis1/MyBatis1.iml" filepath="$PROJECT_DIR$/MyBatis1/MyBatis1.iml" />
       <module fileurl="file://$PROJECT_DIR$/ResfulDemo/ResfulDemo.iml" filepath="$PROJECT_DIR$/ResfulDemo/ResfulDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot/SpringBoot.iml" filepath="$PROJECT_DIR$/SpringBoot/SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot1/SpringBoot1.iml" filepath="$PROJECT_DIR$/SpringBoot1/SpringBoot1.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringMVC/SpringMVC.iml" filepath="$PROJECT_DIR$/SpringMVC/SpringMVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/javaProject.iml" filepath="$PROJECT_DIR$/.idea/javaProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algorithmLearn1/algorithmLearn1.iml" filepath="$PROJECT_DIR$/algorithmLearn1/algorithmLearn1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myblog/myblog.iml" filepath="$PROJECT_DIR$/myblog/myblog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootWeb1/springbootWeb1.iml" filepath="$PROJECT_DIR$/springbootWeb1/springbootWeb1.iml" />
     </modules>
   </component>
 </project>
