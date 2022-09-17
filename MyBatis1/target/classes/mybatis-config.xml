@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//MyBatis.org//DTD Config 3.0//EN"
+        "http://MyBatis.org/dtd/MyBatis-3-config.dtd">
+
+<configuration>
+
+    <!--引入properties文件，此时就可以${属性名}的方式访问属性值-->
+    <properties resource="jdbc.properties"></properties>
+
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
+
+    <typeAliases>
+        <package name="com.mybatis.domain"/>
+    </typeAliases>
+
+
+    <environments default="mysql_test">
+        <environment id="mysql_test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--设置驱动类的全类名-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--设置连接数据库的连接地址-->
+                <property name="url" value="${jdbc.url}"/>
+                <!--设置连接数据库的用户名-->
+                <property name="username" value="${jdbc.username}"/>
+                <!--设置连接数据库的密码-->
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入映射文件-->
+    <mappers>
+        <package name="com.mybatis.mapper"/>
+    </mappers>
+
+</configuration>

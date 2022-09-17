@@ -12,6 +12,7 @@
       <module>cloud-consumer-order80</module>
       <module>cloud-api-commons</module>
       <module>cloud-eureka-server7001</module>
+    <module>cloud-consumerZK-order80</module>
   </modules>
   <!--表示是一个总的父工程-->
   <packaging>pom</packaging>

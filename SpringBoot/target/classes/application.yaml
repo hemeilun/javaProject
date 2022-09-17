@@ -1,0 +1,57 @@
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+
+    druid:
+      filters: stat,wall
+      aop-patterns: com.boot.*
+      stat-view-servlet:
+        login-password: admin
+        login-username: admin
+        enabled: true
+        reset-enable: false    #重置按钮
+
+#      stat-view-servlet:
+#        login-password: admin
+#        login-username: admin
+#        enabled: true
+
+      web-stat-filter:  # 监控web
+        enabled: true
+        urlPattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+      filter:
+        stat:    # 对上面filters里面的stat的详细配置
+          slow-sql-millis: 1000
+          logSlowSql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+
+
+server:
+  port: 80
+
+
+mybatis:
+  mapper-locations: classpath:com/boot/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+

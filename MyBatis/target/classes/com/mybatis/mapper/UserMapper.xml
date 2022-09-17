@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mybatis.mapper.UserMapper">
+
+    <!--int insertUser();-->
+    <insert id="insertUser">
+		insert into user values(null,'heshi',23,'nan')
+	</insert>
+
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from user where username = "heshi"
+    </delete>
+
+    <!--void updateUser();-->
+    <update id="updateUser">
+        update user set username = "hesii" where username = "heshi"
+    </update>
+
+    <!--List<User> selectUser();-->
+    <select id="selectUser" resultType="User">
+        select * from user;
+    </select>
+
+
+
+</mapper>
