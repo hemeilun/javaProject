@@ -105,6 +105,23 @@
 
 
 
+/*.m-right-bottom {*/
+/*    bottom: 0 !important;*/
+/*    right: 0 !important;*/
+/*}*/
+
+.m-nav-top-button-hidden{
+    position: fixed;
+    top: 10px;
+    right: -96%;
+    /*left: 10px;*/
+    width: 100%;
+    margin-top: -60px;
+    transition: margin-top .3s linear ;
+
+}
+
+
 @media screen and (max-width: 768px){
     .m-mobile-hide {
         display: none !important;

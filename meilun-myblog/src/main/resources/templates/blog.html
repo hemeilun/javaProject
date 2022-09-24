@@ -5,6 +5,7 @@
     <title>Title</title>
 
     <link th:replace="common :: commonLink">
+    <script type="text/javascript" src="../static/js/blog.js" th:src="@{/js/blog.js}"></script>
 </head>
 <body>
 <!--导航-->
@@ -166,7 +167,7 @@
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </blockquote>
 
-                <h4>The standard Lorem Ipsum passage, used since the 1500s</h4>
+                <h4 id="h4">The standard Lorem Ipsum passage, used since the 1500s</h4>
 
                 <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -389,8 +390,23 @@ h5,h6{font-size:1em;}
     </div>
 </div>
 
-<div th:include="common::#footer"></div>
+
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">
+    <ol class="js-toc">
+
+    </ol>
+</div>
+
+<div id="toolbar" class=" m-nav-top-button-hidden">
+    <div class="ui vertical icon buttons ">
+        <button type="button" class="ui toc grey button" >目录</button>
+        <a href="#comment-container" class="ui grey button" >评论</a>
+        <div id="toTop-button" class="ui icon button" ><i class="ui medium grey chevron up icon"></i></div>
+    </div>
+</div>
 
 
 </body>
+
+<div th:include="common::#footer"></div>
 </html>
