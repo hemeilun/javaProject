@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="commonLink">
+        <!--引入semantic-->
+        <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+        <script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+        <!--引入jquery-->
+        <script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+
+        <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+
+        <!--引入自定义的CSS-->
+        <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+        <link rel="stylesheet" href="../static/css/w3c.css" th:href="@{/css/w3c.css}">
+
+        <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+    </div>
+
+</head>
+<body>
+
+
+<!--导航条-->
+<div th:fragment="navigation">
+    <nav class="ui inverted segment attached m-padded-tp-mini">
+        <div class="ui container">
+            <div class="ui menu secondary inverted">
+                <a href="#" th:href="@{/}" class="m-item item"><i class="home icon"></i>个人信息</a>
+                <a href="#" th:href="@{/tags}" class="m-item item"><i class="clone outline icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/pictures}" class=" m-item item m-mobile-hide"><i class="image icon"></i>相册</a>
+                <a href="#" th:href="@{/about}" class="m-item item"><i class="info icon"></i>关于我</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+</body>
+
+<footer>
+    <div id="footer">
+        <!--底部栏-->
+        <br><br><br><br>
+
+        <div class="ui divider">
+        </div>
+        <footer class="ui  vertical segment m-padded-tb-massive m-opacity">
+            <!--容器-->
+            <div class="ui center aligned container">
+                <div class="ui inverted divided stackable grid">
+
+                    <div class="eight wide column" >
+                        <div class="" align="center">
+                            <a href="#" class="ui tencent circular icon button"><i class="user icon"></i></a>
+                            <a href="#" class="ui wechat circular icon button" data-content="13986492268"><i class="weixin icon"></i></a>
+                            <a href="#" class="ui qq circular icon button" data-content="1580429724" data-position="bottom center"><i class="qq icon"></i></a>
+                            <a href="https://github.com/hemeilun/" target="_blank" class="ui github circular icon button" data-content="点击跳转GitHub" data-position="bottom center"><i class="github icon"></i></a>
+                            <a href="#" class="ui email circular icon button" data-content="1580429724@qq.com" data-position="bottom center"><i class="envelope  icon"></i></a>
+                        </div>
+
+                        <br/>
+                        <a style="padding-top: 20px" rel="nofollow" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">备案号：鄂ICP备2021017313号-1</a>
+                    </div>
+
+                    <div class="eight wide column">
+                        <div style="font-size: large;font-weight: bold" class="ui inverted m-text-thin m-text-spaced " >联系我</div>
+                        <div class="ui inverted link list">
+                            <div href="#" class="m-text-thin">QQ：1580429724</div>
+                            <div href="#" class="m-text-thin">weixin：13986492268</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br/><br/><br/>
+        </footer>
+    </div>
+
+</footer>
+
+</html>

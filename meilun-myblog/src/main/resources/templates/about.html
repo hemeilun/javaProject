@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>标签</title>
+
+    <link th:include="common :: commonLink">
+</head>
+<body>
+
+<!--导航-->
+<div th:include="common :: navigation"></div>
+
+<!--顶部背景图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/aboutbg.jpg"  alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <div class="m-font-size-title" align="center" style="font-family:'STXingkai'">关于我</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">最难不过坚持</div>
+        </div>
+    </div>
+</div>
+
+<!--个人资料描述-->
+<!--关于我后面要改为一篇markdown文档-->
+<div class="ui container m-opacity box-shadow-max">
+    <div class="ui segment m-margin-" align="center">
+        <div class="m-margin-top-large" align="center">
+            <img class="ui circular image" align="center" src="../static/images/aboutbg.jpg" style="width: 150px;height: 150px;">
+        </div>
+        <div class="m-margin-top-small" style="font-size: x-large;font-family: STSong" align="center">meilun</div>
+
+
+        <hr class="m-margin-top-small" style="width: 30%">
+        <br>
+        <div>
+            <br>
+            <p>不断学习</p>
+            <p>爱编程、爱音乐、爱折腾</p>
+            <p>生命在于折腾</p>
+            <p>世界很大</p>
+            <p>有些鸟儿注定是不会被关在笼子里的</p>
+            <p>因为它们的每一片羽毛都闪耀着自由的光辉</p>
+            <p>既然来到了人间</p>
+            <p>便去经历，去拼搏，去感受，去爱</p>
+            <p>生命不息，折腾不止</p>
+            <p>总有些人，有些事，会让你感觉到生命的温暖和满足，让你感慨生命的“不虚此行”</p>
+            <p>届时，我会说</p>
+            <p>我来过，我不后悔！</p>
+        </div>
+        <hr class="m-margin-top-large">
+        <br>
+    </div>
+</div>
+
+
+</body>
+
+<footer>
+    <div th:include="common::#footer"></div>
+</footer>
+
+</html>

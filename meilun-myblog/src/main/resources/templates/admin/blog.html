@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <div th:replace="commonAdmin :: commonLink"></div>
+</head>
+<body >
+
+<div th:replace="commonAdmin :: navigation"></div>
+
+<div>
+    <div class="ui container m-admin-blog-line-top">
+        <div  class="ui  secondary segment form">
+            <input type="hidden" name="page" >
+            <div class="inline fields">
+                <div class="field">
+                    <div class="ui category search">
+                        <div class="ui icon input">
+                            <input class="prompt" type="text" placeholder="查询文章">
+                            <i class="search icon"></i>
+                        </div>
+                        <div class="results"></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <button class="ui primary button">
+                        添加
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui aligned center container">
+        <table class="ui basic table">
+            <thead>
+            <tr>
+                <th>标题</th>
+                <th>状态</th>
+                <th>分类</th>
+                <th>评论</th>
+                <th>访问</th>
+                <th>发布时间</th>
+                <th>操作</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>java</td>
+                <td>已发布</td>
+                <td>学习</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2022.9.8</td>
+                <td><a>编辑</a></td>
+                <td><a>删除</a></td>
+            </tr>
+            <tr>
+                <td>java</td>
+                <td>已发布</td>
+                <td>学习</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2022.9.8</td>
+                <td><a>编辑</a></td>
+                <td><a>删除</a></td>
+            </tr>
+            <tr>
+                <td>java</td>
+                <td>已发布</td>
+                <td>学习</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2022.9.8</td>
+                <td><a>编辑</a></td>
+                <td><a>删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+<footer>
+    <div th:include="commonAdmin::#footer"></div>
+</footer>
+</html>
