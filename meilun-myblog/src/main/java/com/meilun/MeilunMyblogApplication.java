@@ -1,4 +1,4 @@
-package com.meilun.meilunmyblog;
+package com.meilun;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.meilun.meilunmyblog.test;
+package com.meilun.test;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
