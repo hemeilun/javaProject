@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户激活</title>
+  <link th:include="common :: commonLink">
+  <script type="text/javascript" src="../static/js/userlogin.js" th:src="@{/js/userlogin.js}"></script>
+</head>
+<body>
+
+<div class="ui container aligned center m-line-size m-tiny-shoudow" >
+
+  <div class="m-margin-person-table">
+
+
+    <h2 class="ui dividing header">用户激活</h2>
+    <!--    <div class="grid"-->
+    <form class="ui form"  method="post" action="#" th:action="@{/user/activeverify}">
+
+      <div class="field">
+        <label>激活码</label>
+        <div class="field">
+          <input type="text" name="uActivationCode" placeholder="请输入激活码">
+        </div>
+      </div>
+
+      <div class="field" style="text-align: center">
+        <div class="ui button aligned center submit" tabindex="0">激活</div>
+      </div>
+
+      <div class="ui error mini message"></div>
+      <div id="errormessage" class="ui message" style="color: red" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}">error</div>
+    </form>
+
+  </div>
+</div>
+
+
+</body>
+<footer>
+
+</footer>
+
+</html>

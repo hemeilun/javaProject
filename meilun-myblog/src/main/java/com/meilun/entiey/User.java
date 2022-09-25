@@ -70,6 +70,17 @@ public class User implements Serializable {
     private String uQq;
 
     /**
+     * 博客是否发布
+     */
+    private Boolean uIsActive;
+
+    /**
+     * 博客激活码
+     */
+    private String uActivationCode;
+
+
+    /**
      * 该用户的博客列表
      */
     @TableField(exist = false)

@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/mail")
+//@RestController
+//@RequestMapping("/mail")
 public class SentMainController {
 
     @Autowired
@@ -24,10 +24,10 @@ public class SentMainController {
         mailService.sendTextMailMessage(to,subject,text);
     }
 
-    @RequestMapping("/sendHtmlMail")
-    public void sendHtmlMailMessage(String to,String subject,String text){
-        mailService.sendHtmlMail(to,subject,text);
-    }
+//    @RequestMapping("/sendHtmlMail")
+//    public void sendHtmlMailMessage(String to,String subject,String text){
+//        mailService.sendHtmlMail(to,subject,text);
+//    }
 
     /**
      * 发送带附件的邮件

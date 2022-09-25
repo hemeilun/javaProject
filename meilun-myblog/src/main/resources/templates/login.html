@@ -45,6 +45,8 @@
 
 
            <div class="m-font-style" style="color:#49483E;">还没账号吗?点击<a th:href="@{/user/regist}" style="color: #1e70bf"> 注册 </a></div>
+             <div class="m-font-style" style="color:#49483E;">还没激活吗?点击<a th:href="@{/user/active}" style="color: #1e70bf"> 激活 </a></div>
+
              <div class="ui error mini message"></div>
 <!--             <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>-->
            <div id="errormessage" class="ui message" style="color: red" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}">error</div>

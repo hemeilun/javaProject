@@ -84,7 +84,10 @@ public class MailService {
         }
     }
 
-    public void sendHtmlMail(String to, String subject, String text){
+    public void sendHtmlMail(String to,String uuid){
+
+        String subject = to+"博客激活";
+        String text = "博客激活码为："+uuid;
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
@@ -93,8 +96,6 @@ public class MailService {
             helper.setSubject(subject);
             // 设置邮件内容，第二个参数设置是否支持 text/html 类型
             helper.setText(text, true);
-//            helper.addInline("logo", new ClassPathResource("img/logo.jpg"));
-//            helper.addAttachment("logo.pdf", new ClassPathResource("doc/logo.pdf"));
             javaMailSender.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();
