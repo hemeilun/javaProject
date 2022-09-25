@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meilun.mapper.BlogMapper">
+
+    <resultMap id="BaseResultMap" type="com.meilun.entiey.Blog">
+            <id property="bId" column="b_id" jdbcType="BIGINT"/>
+            <result property="bTitle" column="b_title" jdbcType="VARCHAR"/>
+            <result property="bContent" column="b_content" jdbcType="VARCHAR"/>
+            <result property="bPicture" column="b_picture" jdbcType="VARCHAR"/>
+            <result property="bViews" column="b_views" jdbcType="INTEGER"/>
+            <result property="bDate" column="b_date" jdbcType="TIMESTAMP"/>
+            <result property="bIspublic" column="b_isPublic" jdbcType="BIT"/>
+            <result property="bIspulish" column="b_isPulish" jdbcType="BIT"/>
+            <result property="bTagid" column="b_tagId" jdbcType="BIGINT"/>
+            <result property="bUserid" column="b_userId" jdbcType="BIGINT"/>
+            <result property="bDescription" column="b_description" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        b_id,b_title,b_content,
+        b_picture,b_views,b_date,
+        b_isPublic,b_isPulish,b_tagId,
+        b_userId,b_description
+    </sql>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meilun.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.meilun.entiey.User">
+            <id property="uId" column="u_id" jdbcType="BIGINT"/>
+            <result property="uPicture" column="u_picture" jdbcType="VARCHAR"/>
+            <result property="uNickname" column="u_nickName" jdbcType="VARCHAR"/>
+            <result property="uUsername" column="u_username" jdbcType="VARCHAR"/>
+            <result property="uPassword" column="u_password" jdbcType="VARCHAR"/>
+            <result property="uEmail" column="u_email" jdbcType="VARCHAR"/>
+            <result property="uPhone" column="u_phone" jdbcType="VARCHAR"/>
+            <result property="uGithub" column="u_github" jdbcType="VARCHAR"/>
+            <result property="uWechat" column="u_wechat" jdbcType="VARCHAR"/>
+            <result property="uQq" column="u_qq" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        u_id,u_picture,u_nickName,
+        u_username,u_password,u_email,
+        u_phone,u_github,u_wechat,
+        u_qq
+    </sql>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meilun.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.meilun.entiey.Comment">
+            <id property="cId" column="c_id" jdbcType="BIGINT"/>
+            <result property="cContent" column="c_content" jdbcType="VARCHAR"/>
+            <result property="cCreatedate" column="c_createDate" jdbcType="TIMESTAMP"/>
+            <result property="cUserid" column="c_userId" jdbcType="BIGINT"/>
+            <result property="cParentcommentid" column="c_parentCommentId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        c_id,c_content,c_createDate,
+        c_userId,c_parentCommentId
+    </sql>
+</mapper>
