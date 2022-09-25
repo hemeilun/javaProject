@@ -94,6 +94,18 @@
 <!--        </dependency>-->
 
 
+        <!--发送邮件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+
 
         <!-- jbcrypt密码加密 -->
         <dependency>
@@ -101,7 +113,6 @@
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
         </dependency>
-
 
 
         <dependency>

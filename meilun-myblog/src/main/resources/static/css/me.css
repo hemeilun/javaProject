@@ -98,6 +98,10 @@
     /*height: 0.2px;*/
 }
 
+.m-tiny-shoudow{
+    box-shadow:0 0 10px rgba(0,0,0,0.1) !important;
+}
+
 
 
 /*分页栏间距*/
@@ -117,6 +121,12 @@
 
 .m-admin-blog-line-top{
     margin-top: 5em !important;
+}
+
+
+/*控制内部表格大小*/
+.m-margin-person-table{
+    padding: 30px 30px 30px 30px !important;
 }
 
 
@@ -159,4 +169,9 @@
 }
 
 
+/*导航栏标签大小*/
+.m-item{
+    margin: 0 5px 0 5px !important;
+    padding: 11px 13px !important;
+}
 

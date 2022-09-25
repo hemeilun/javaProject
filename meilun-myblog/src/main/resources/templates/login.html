@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>博客管理登录</title>
   <link th:include="common :: commonLink">
+  <script type="text/javascript" src="../static/js/userlogin.js" th:src="@{/js/userlogin.js}"></script>
 </head>
 <body>
 
@@ -20,27 +21,36 @@
              后台管理登录
            </div>
          </h2>
-         <form class="ui large form" method="post" action="#" th:action="@{/login}">
-           <div class="ui  segment">
+
+         <form class="ui large form" method="post" action="#" th:action="@{/user/loginverify}">
+           <div class="ui segment">
+
              <div class="field">
                <div class="ui left icon input">
                  <i class="user icon"></i>
-                 <input type="text" name="username" placeholder="用户名">
+                 <input type="text" name="uUsername" placeholder="请输入用户名">
                </div>
              </div>
              <div class="field">
                <div class="ui left icon input">
                  <i class="lock icon"></i>
-                 <input type="password" name="password" placeholder="密码">
+                 <input type="password" name="uPassword" placeholder="请输入密码">
                </div>
              </div>
-             <button class="ui fluid large teal submit button">登   录</button>
+
+             <div class="field">
+               <button class="ui large fluid teal submit button">登录</button>
+             </div>
+
+
+
+           <div class="m-font-style" style="color:#49483E;">还没账号吗?点击<a th:href="@{/user/regist}" style="color: #1e70bf"> 注册 </a></div>
+             <div class="ui error mini message"></div>
+<!--             <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>-->
+           <div id="errormessage" class="ui message" style="color: red" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}">error</div>
            </div>
-
-           <div class="ui error mini message"></div>
-           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
-
          </form>
+
 
        </div>
      </div>
@@ -49,26 +59,9 @@
 
 
 
-<script>
-  $('.ui.form').form({
-    fields : {
-      username : {
-        identifier: 'username',
-        rules: [{
-          type : 'empty',
-          prompt: '请输入用户名'
-        }]
-      },
-      password : {
-        identifier: 'password',
-        rules: [{
-          type : 'empty',
-          prompt: '请输入密码'
-        }]
-      }
-    }
-  });
-</script>
-
 </body>
+<footer>
+
+</footer>
+
 </html>

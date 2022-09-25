@@ -72,11 +72,13 @@ public class User implements Serializable {
     /**
      * 该用户的博客列表
      */
+    @TableField(exist = false)
     private List<Blog> uBlogList;
 
     /**
      * 该用户的分类列表
      */
+    @TableField(exist = false)
     private List<Tags> uTagsList;
 
     @TableField(exist = false)

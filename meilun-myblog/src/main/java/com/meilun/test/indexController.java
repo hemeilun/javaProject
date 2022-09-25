@@ -40,10 +40,10 @@ public class indexController {
         return "search";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
+//    @GetMapping("/login")
+//    public String login(){
+//        return "login";
+//    }
 
 
     @GetMapping("/person")
@@ -56,10 +56,6 @@ public class indexController {
         return "admin/blog";
     }
 
-    @GetMapping("/blogThis")
-    public String blogThis(){
-        return "/blogThis";
-    }
 
     @GetMapping("/bloginput")
     public String bloginput(){

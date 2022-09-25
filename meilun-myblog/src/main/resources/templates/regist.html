@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客用户注册</title>
+  <link th:include="common :: commonLink">
+  <script type="text/javascript" src="../static/js/userregist.js" th:src="@{/js/userregist.js}"></script>
+</head>
+<body>
+
+<!--个人信息-->
+<div class="ui container aligned center m-line-size m-tiny-shoudow" >
+
+  <div class="m-margin-person-table">
+
+
+  <h2 class="ui dividing header">用户注册</h2>
+  <!--    <div class="grid"-->
+  <form class="ui form"  method="post" action="#" th:action="@{/user/registverify}">
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>昵称</label>
+          <div class="field">
+            <input type="text" name="uNickname" placeholder="昵称">
+          </div>
+        </div>
+        <div class="field">
+          <label>用户名</label>
+          <div class="field">
+            <input type="text" name="uUsername" placeholder="用户名（不可为空）,建议与邮箱保持一致">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>密码</label>
+          <div class="field">
+            <input type="password" name="uPassword" placeholder="密码（不可为空）">
+          </div>
+        </div>
+        <div class="field">
+          <label>确认密码</label>
+          <div class="field">
+            <input type="password" name="surePassword" placeholder="再次输入确认（不可为空）">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>邮箱</label>
+      <div class="field">
+        <input type="text" name="uEmail" placeholder="邮箱(不可为空)">
+      </div>
+    </div>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>电话</label>
+          <div class="field">
+            <input type="text" name="uPhone" placeholder="电话">
+          </div>
+        </div>
+        <div class="field">
+          <label>微信</label>
+          <div class="field">
+            <input type="text" name="uWechat" placeholder="微信">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>QQ</label>
+      <div class="field">
+        <input type="text" name="uQq" placeholder="QQ">
+      </div>
+    </div>
+    <div class="field">
+      <label>github</label>
+      <div class="field">
+        <input type="text" name="uGithub"  placeholder="github">
+      </div>
+    </div>
+
+    <div class="field" style="text-align: center">
+      <div class="ui button aligned center submit" tabindex="0">添加</div>
+    </div>
+
+    <div class="ui error mini message"></div>
+    <div id="errormessage" class="ui message" style="color: red" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}">error</div>
+  </form>
+
+  </div>
+</div>
+
+
+
+</body>
+</html>

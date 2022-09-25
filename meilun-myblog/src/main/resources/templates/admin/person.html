@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>个人信息</title>
     <div th:replace="commonAdmin :: commonLink"></div>
+    <script type="text/javascript" src="../../static/js/userregist.js" th:src="@{/js/userregist.js}"></script>
 </head>
 <body>
 
@@ -11,59 +12,95 @@
 
 
 <!--个人信息-->
-<div class="ui container aligned center m-line-size">
-<!--    <div class="grid"-->
-    <form class="ui form" style="">
-        <h4 class="ui dividing header">个人信息</h4>
-        <div class="field">
-            <label>昵称</label>
-                <div class="field">
-                    <input type="text" name="shipping[first-name]" placeholder="昵称">
+<div class="ui container aligned center m-line-size m-tiny-shoudow" >
+
+    <div class="m-margin-person-table">
+
+
+        <h2 class="ui dividing header">用户信息</h2>
+        <!--    <div class="grid"-->
+        <form class="ui form"  method="post" action="#" th:action="@{/user/registverify}">
+
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>昵称</label>
+                        <div class="field">
+                            <input type="text" name="uNickname" placeholder="昵称" th:placeholder="${session.user.UNickname}" >
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>用户名</label>
+                        <div class="field">
+                            <input type="text" name="uUsername" th:placeholder="${session.user.UUsername}" placeholder="用户名">
+                        </div>
+                    </div>
                 </div>
-        </div>
-        <div class="field">
-            <label>用户名</label>
-            <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="用户名">
             </div>
-        </div>
-        <div class="field">
-            <label>邮箱</label>
             <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="邮箱">
+                <div class="two fields">
+                    <div class="field">
+                        <label>密码</label>
+                        <div class="field">
+                            <input type="password" name="uPassword" placeholder="******">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>确认密码</label>
+                        <div class="field">
+                            <input type="password" name="surePassword" placeholder="******">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label>电话</label>
-            <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="电话">
-            </div>
-        </div>
-        <div class="field">
-            <label>微信</label>
-            <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="微信">
-            </div>
-        </div>
-        <div class="field">
-            <label>QQ</label>
-            <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="QQ">
-            </div>
-        </div>
-        <div class="field">
-            <label>github</label>
-            <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="github">
-            </div>
-        </div>
 
-        <div class="ui button aligned center" tabindex="0">修改</div>
-    </form>
+            <div class="field">
+                <label>邮箱</label>
+                <div class="field">
+                    <input type="text" name="uEmail" placeholder="邮箱" th:placeholder="${session.user.UEmail}" >
+                </div>
+            </div>
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>电话</label>
+                        <div class="field">
+                            <input type="text" name="uPhone" placeholder="电话" th:placeholder="${session.user.UPhone}" >
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>微信</label>
+                        <div class="field">
+                            <input type="text" name="uWechat" placeholder="微信" th:placeholder="${session.user.UWechat}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="field">
+                <label>QQ</label>
+                <div class="field">
+                    <input type="text" name="uQq" placeholder="QQ" th:placeholder="${session.user.UQq}" >
+                </div>
+            </div>
+            <div class="field">
+                <label>github</label>
+                <div class="field">
+                    <input type="text" name="uGithub"  placeholder="github" th:placeholder="${session.user.UGithub}" >
+                </div>
+            </div>
+
+            <div class="field" style="text-align: center">
+                <div class="ui button aligned center submit" tabindex="0">修改</div>
+            </div>
+
+            <div class="ui error mini message"></div>
+        </form>
+
+    </div>
 </div>
 
-
+</div>
 
 </body>
 
