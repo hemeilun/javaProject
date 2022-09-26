@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Random;
 import java.util.UUID;
 
 
@@ -50,18 +49,30 @@ public class UserController {
         queryWrapper.eq("u_username",user.getUUsername());
         User one = userService.getOne(queryWrapper);
 
+        QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.eq("u_id",one.getUId());
+        userService.getOne(queryWrapper1);
+
         if(one == null){
             redirectAttributes.addFlashAttribute("errormessage","不存在此用户");
             return "redirect:/user/login";
         }else {
+
             boolean checkpw = BCrypt.checkpw(user.getUPassword(), one.getUPassword());
             if(checkpw == false){
                 redirectAttributes.addFlashAttribute("errormessage","用户名或密码错误");
                 return "redirect:/user/login";
             }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("user",one);
-                return "admin/person";
+
+                if(one.getUIsActive()==false){
+                    redirectAttributes.addFlashAttribute("errormessage","用户未激活，请先激活");
+                    return "redirect:/user/login";
+                }else{
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user",one);
+                    return "admin/person";
+                }
+
             }
         }
     }
@@ -140,6 +151,8 @@ public class UserController {
         queryWrapper.eq("u_activation_code",uActivationCode).eq("u_is_active",false);
 
         User one = userService.getOne(queryWrapper);
+
+
 
         if(one==null){
             redirectAttributes.addFlashAttribute("errormessage","激活码错误或已被激活");

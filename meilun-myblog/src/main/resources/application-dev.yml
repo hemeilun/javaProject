@@ -10,7 +10,7 @@ spring:
     host: smtp.163.com
     username: meilun_he@163.com
     address: meilun_he@163.com
-    password:
+    password: FWYHWEMHFFSSOHBO
     default-encoding: utf-8
     protocol: smtp
     port: 25
@@ -25,6 +25,16 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+pagehelper:
+  auto-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  page-size-zero: true
+  params: count=countSql
+
+
 
 #  redis:
 #    host: 127.0.0.1

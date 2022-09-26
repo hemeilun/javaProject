@@ -13,4 +13,12 @@
     <sql id="Base_Column_List">
         t_id,t_name,t_userId
     </sql>
+
+
+
+    <select id="selectAllTagsByUid" resultType="com.meilun.entiey.Tags">
+        SELECT t.* FROM user_tags ut, tags t WHERE  ut.t_id = t.t_id and ut.u_id = concat( #{uid} )
+    </select>
+
+
 </mapper>

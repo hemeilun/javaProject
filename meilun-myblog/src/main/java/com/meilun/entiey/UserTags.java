@@ -5,44 +5,32 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import java.util.List;
-
 import lombok.Data;
 import lombok.ToString;
 
 /**
  * 
- * @TableName tags
+ * @TableName user_tags
  */
-@TableName(value ="tags")
+@TableName(value ="user_tags")
 @Data
 @ToString
-public class Tags implements Serializable {
+public class UserTags implements Serializable {
     /**
-     * 分类id
+     * 
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId
+    private Long utId;
+
+    /**
+     * 
+     */
+    private Long uId;
+
+    /**
+     * 
+     */
     private Long tId;
-
-    /**
-     * 分类名称
-     */
-    private String tName;
-
-    /**
-     * 该标签下的博客列表
-     */
-    @TableField(exist = false)
-    private List<Blog> tBlogList;
-
-    /**
-     * 拥有该标签的用户
-     */
-    @TableField(exist = false)
-    private List<User> tUserList;
-
-
-
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

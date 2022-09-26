@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分类</title>
+  <link th:include="common :: commonLink">
+  <script type="text/javascript" src="../static/js/userlogin.js" th:src="@{/js/userlogin.js}"></script>
+</head>
+<body>
+
+<div th:replace="commonAdmin :: navigation"></div>
+
+
+<div class="ui  m-line-size m-tiny-shoudow m-tags-fitst-page" >
+
+  <div class="m-margin-person-table">
+
+    <div >
+        <h2 class="ui dividing header">添加</h2>
+        <!--    <div class="grid"-->
+        <form class="ui form"  method="post" action="#" th:action="@{/tags/add}">
+
+          <div class="field">
+            <label>分类名</label>
+            <div class="field">
+              <input type="text" name="tName" placeholder="添加分类 （不可为空）">
+            </div>
+          </div>
+
+          <div class="field" style="text-align: center">
+            <button type="button" class="ui button teal submit">添加</button>
+          </div>
+        </form>
+        <div class="message m-font-style" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}"></div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="ui m-line-size m-tiny-shoudow m-tags-second-page" >
+
+  <div class="m-margin-person-table">
+
+    <div class="">
+      <h2 class="ui dividing header">分类列表</h2>
+          <div class="ui aligned center container">
+              <table class="ui basic table">
+                  <thead>
+                  <tr>
+                      <th>分类</th>
+                      <th>操作</th>
+                      <th></th>
+                  </tr>
+                  </thead>
+                  <tbody th:each="tag : ${page.records}">
+
+
+                  <tr>
+                      <td th:text="${tag.tName}">java</td>
+                      <td><a>编辑</a></td>
+                      <td><a>删除</a></td>
+                  </tr>
+                  </tbody>
+              </table>
+
+              <div class="ui container center aligned">
+                  <div class="pagination">
+                      <a href="#">«</a>
+                      <a href="#">1</a>
+                      <a href="#" class="active">2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">5</a>
+                      <a href="#">6</a>
+                      <a href="#">»</a>
+                      <div class="m-page-font-style">共10页</div>
+                  </div>
+              </div>
+
+          </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+</body>
+
+</html>

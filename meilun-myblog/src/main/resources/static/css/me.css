@@ -175,3 +175,19 @@
     padding: 11px 13px !important;
 }
 
+
+
+
+/*设置标签页*/
+.m-tags-fitst-page{
+    width: 40%;
+    margin-left: 3% !important;
+    float: left;
+}
+
+.m-tags-second-page{
+    width: 50%;
+    margin-right: 3% !important;
+    float: right;
+
+}
