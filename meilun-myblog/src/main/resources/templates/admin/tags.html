@@ -67,15 +67,17 @@
 
               <div class="ui container center aligned">
                   <div class="pagination">
-                      <a href="#">«</a>
-                      <a href="#">1</a>
-                      <a href="#" class="active">2</a>
-                      <a href="#">3</a>
-                      <a href="#">4</a>
-                      <a href="#">5</a>
-                      <a href="#">6</a>
-                      <a href="#">»</a>
-                      <div class="m-page-font-style">共10页</div>
+<!--                      <a href="#" th:text="{}"></a>-->
+                      <a href="#" th:href="@{'/tags/'+${page.current-1}}" th:if="${page.isHavePre == true}">«</a>
+
+                      <i th:each="tagpage : ${page.navigation}">
+                          <a href="#" th:href="@{'/tags/'+${tagpage}}" th:if = "${tagpage == page.current}" class="active" th:text="${tagpage}">1</a>
+                          <a href="#" th:href="@{'/tags/'+${tagpage}}" th:if = "${tagpage != page.current}" th:text="${tagpage}">1</a>
+                      </i>
+                      <a href="#" th:if="${page.isHaveNext == true}" th:href="@{'/tags/'+${page.current+1}}">»</a>
+
+                      <a href="#" th:text="|共 ${page.totalpage} 页|">»</a>
+
                   </div>
               </div>
 

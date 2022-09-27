@@ -10,12 +10,12 @@ import com.meilun.service.TagsService;
 import com.meilun.service.UserTagsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @RequestMapping("/tags")
@@ -29,27 +29,42 @@ public class TagsController {
 
 
     @RequestMapping("/admin")
-    public String admin(HttpSession session,HttpServletRequest request){
-
+    public String admin(HttpSession session, HttpServletRequest request){
 
 
         User user = (User)session.getAttribute("user");
-//        QueryWrapper<Tags> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("ut.u_id",user.getUId());
-        IPage<Tags> tagsIPage = tagsService.selectAllTagsByUid(user.getUId());
 
-        request.setAttribute("page",tagsIPage);
-//        System.out.println(tagsIPage);
+        System.out.println(1);
+
+//        IPage<Tags> tagsIPage = tagsService.selectAllTagsByUid(user.getUId(),pageId);
 //
-//        List<Tags> tags = tagsIPage.getRecords();
-//        request.setAttribute("tags",tags);
+//        request.setAttribute("page",tagsIPage);
+        this.toPageProcess(user,request,1);
 
         return "admin/tags";
     }
 
 
+    //根据pageId查询页面
+    public void toPageProcess(User user,HttpServletRequest request,long pageId){
 
+        IPage<Tags> tagsIPage = tagsService.selectAllTagsByUid(user.getUId(),pageId);
+        request.setAttribute("page",tagsIPage);
 
+    }
+
+    @RequestMapping("/{pageId}")
+    public String toPage(@PathVariable("pageId") long pageId,HttpServletRequest request){
+
+//        int pageIdInt = (int)pageId;
+//        redirectAttributes.addFlashAttribute("pageId",pageIdInt);
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+
+        toPageProcess(user,request,pageId);
+
+        return "/admin/tags";
+    }
 
 
     @RequestMapping("/add")
@@ -57,6 +72,7 @@ public class TagsController {
 
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
+
 
         if(tags.getTName() == null || "".equals(tags.getTName())){
             return "redirect:/user/active";
@@ -109,12 +125,10 @@ public class TagsController {
 
 
 
-//    @RequestMapping("/querryByUserId")
-//    public String querryByUserId(){
-//
-//
-//        return null;
-//    }
+
+
+
+
 
 
 
