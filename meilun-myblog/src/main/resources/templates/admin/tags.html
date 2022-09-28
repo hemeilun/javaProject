@@ -32,7 +32,7 @@
             <button type="button" class="ui button teal submit">添加</button>
           </div>
         </form>
-        <div class="message m-font-style" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}"></div>
+        <div class="message m-font-style" style="color: red" th:text="${errormessage}"  th:unless="${#strings.isEmpty(errormessage)}"></div>
     </div>
 
   </div>
@@ -55,7 +55,6 @@
                   </tr>
                   </thead>
                   <tbody th:each="tag : ${page.records}">
-
 
                   <tr>
                       <td th:text="${tag.tName}">java</td>

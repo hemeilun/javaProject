@@ -1,24 +1,36 @@
-package com.meilun.test;
+package com.meilun.controller;
 
+import com.meilun.common.CommonPage;
+import com.meilun.entiey.Blog;
+import com.meilun.service.BlogService;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class indexController {
 
-    @RequestMapping("/")
-    public String index(){
+    @Autowired
+    BlogService blogService;
 
-//        String password = "123456";
-//        System.out.println(BCrypt.gensalt());
-//        String hashPw = BCrypt.hashpw(password,BCrypt.gensalt());
-//        System.out.println(hashPw);
-//        boolean checkpw = BCrypt.checkpw(password, "$2a$10$3VBeaoVQS.fJxIEzlL1EMuie7Ip/vou2wbhBEQmf4EsOPcy4gt3bu");
-//        System.out.println(checkpw);
+
+    @RequestMapping("/")
+    public String index(HttpServletRequest request){
+
+        CommonPage<Blog> blogCommonPage = blogService.selectAllBlogNotOnlyMe(1);
+        request.setAttribute("indexpage",blogCommonPage);
+        System.out.println(blogCommonPage.getRecords());
+        System.out.println(blogCommonPage);
+
         return "index";
     }
+
+
+
 
     @GetMapping("/tags")
     public String tags(){
@@ -39,11 +51,6 @@ public class indexController {
     public String search(){
         return "search";
     }
-
-//    @GetMapping("/login")
-//    public String login(){
-//        return "login";
-//    }
 
 
     @GetMapping("/person")

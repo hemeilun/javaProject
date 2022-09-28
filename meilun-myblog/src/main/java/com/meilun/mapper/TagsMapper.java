@@ -22,6 +22,8 @@ public interface TagsMapper extends BaseMapper<Tags> {
     //根据用户id查询所有tags
     CommonPage<Tags> selectAllTagsByUid(CommonPage<Tags> page, @Param("uid") long uid );
 
+    List<Tags> selectAllTagsByUidNotPage(@Param("uid") long uid);
+
 }
 
 

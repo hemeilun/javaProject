@@ -37,6 +37,13 @@ public class TagsServiceImpl extends ServiceImpl<TagsMapper, Tags>
         return result;
     }
 
+    @Override
+    public List<Tags> selectAllTagsByUidNotPage(long uid) {
+
+        List<Tags> tags = tagsMapper.selectAllTagsByUidNotPage(uid);
+        return tags;
+    }
+
 }
 
 

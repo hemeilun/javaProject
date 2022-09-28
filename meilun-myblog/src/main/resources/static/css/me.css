@@ -191,3 +191,15 @@
     float: right;
 
 }
+
+
+
+.m-text-show{
+    width: 27%;
+    height: 35% !important;
+    margin-right: 3%;
+    margin-left: 3%;
+    float: left;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}

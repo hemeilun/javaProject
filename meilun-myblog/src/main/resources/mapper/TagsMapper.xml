@@ -20,5 +20,9 @@
         SELECT t.* FROM user_tags ut, tags t WHERE  ut.t_id = t.t_id and ut.u_id = concat( #{uid} )
     </select>
 
+    <select id="selectAllTagsByUidNotPage" resultType="com.meilun.entiey.Tags">
+        SELECT t.* FROM user_tags ut, tags t WHERE  ut.t_id = t.t_id and ut.u_id = concat( #{uid} )
+    </select>
+
 
 </mapper>

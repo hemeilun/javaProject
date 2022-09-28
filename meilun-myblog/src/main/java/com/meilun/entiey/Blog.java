@@ -78,16 +78,19 @@ public class Blog implements Serializable {
     /**
      * 博客标签
      */
+    @TableField(exist = false)
     private Tags bTag;
 
     /**
      * 博客属于的用户
      */
+    @TableField(exist = false)
     private User bUser;
 
     /**
      * 博客评论
      */
+    @TableField(exist = false)
     private List<Comment> bCommentList;
 
     @TableField(exist = false)

@@ -24,4 +24,20 @@
         b_isPublic,b_isPulish,b_tagId,
         b_userId,b_description
     </sql>
+
+
+
+    <select id="selectAllBlog" resultType="com.meilun.entiey.Blog">
+        select b_id,b_title,b_picture,b_views,b_date,
+        b_isPublic,b_isPulish,b_tagId,
+        b_userId,b_description from blog b where b.b_userid = concat( #{uid} ) and b.b_ispulish = 1
+    </select>
+
+    <select id="selectAllBlogNotOnlyMe" resultType="com.meilun.entiey.Blog">
+        select b_id,b_title,b_content,b_picture,b_views,b_date,
+        b_isPublic,b_isPulish,b_tagId,
+        b_userId,b_description from blog b where b.b_ispulish = 1 and b.b_ispublic = 1
+    </select>
+
+
 </mapper>

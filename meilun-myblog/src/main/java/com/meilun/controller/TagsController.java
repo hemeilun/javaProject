@@ -34,7 +34,7 @@ public class TagsController {
 
         User user = (User)session.getAttribute("user");
 
-        System.out.println(1);
+//        System.out.println(1);
 
 //        IPage<Tags> tagsIPage = tagsService.selectAllTagsByUid(user.getUId(),pageId);
 //

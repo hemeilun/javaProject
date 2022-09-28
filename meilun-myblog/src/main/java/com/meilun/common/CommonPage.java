@@ -59,11 +59,11 @@ public class CommonPage<T> extends Page<T> {
             }
         }
 
-       if(current == 1 && totalpage !=0){
+       if(current == 1 && totalpage !=1){
             isHaveNext = true;
         }
 
-        if(current == totalpage && totalpage != 0 ){
+        if(current == totalpage && totalpage != 1 ){
             isHavePre = true;
         }
 
