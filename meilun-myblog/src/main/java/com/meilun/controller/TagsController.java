@@ -31,14 +31,7 @@ public class TagsController {
     @RequestMapping("/admin")
     public String admin(HttpSession session, HttpServletRequest request){
 
-
         User user = (User)session.getAttribute("user");
-
-//        System.out.println(1);
-
-//        IPage<Tags> tagsIPage = tagsService.selectAllTagsByUid(user.getUId(),pageId);
-//
-//        request.setAttribute("page",tagsIPage);
         this.toPageProcess(user,request,1);
 
         return "admin/tags";
@@ -65,6 +58,9 @@ public class TagsController {
 
         return "/admin/tags";
     }
+
+
+
 
 
     @RequestMapping("/add")
@@ -125,6 +121,12 @@ public class TagsController {
 
 
 
+    @RequestMapping("/detail/{tagsPageId}")
+    public String tagsPageId(@PathVariable("tagsPageId") long tagsPageId,HttpServletRequest request){
+
+        System.out.println(tagsPageId);
+        return null;
+    }
 
 
 

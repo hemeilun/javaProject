@@ -1,5 +1,6 @@
 package com.meilun.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.meilun.common.CommonPage;
 import com.meilun.entiey.Blog;
@@ -48,6 +49,17 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog>
     }
 
 
+    public CommonPage<Blog> selectAllBlogByTagsId(long tid, long pageId){
+        CommonPage<Blog> page = new CommonPage<>();
+        page.setSize(12);
+        page.setCurrent(pageId);
+
+        CommonPage<Blog> result = blogMapper.selectAllBlogByTagsId(page,tid);
+
+        result.DetailProcess();
+
+        return result;
+    }
 
 }
 

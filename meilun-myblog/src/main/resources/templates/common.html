@@ -33,38 +33,70 @@
         <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
     </div>
 
-<!--    <div th:fragment="blogDetail">-->
-<!--&lt;!&ndash;        <link href="../static/images/abstractcover.png" th:href="@{/images/abstractcover.png}" rel="icon" type="image/x-ico">&ndash;&gt;-->
-<!--       -->
-<!--    </div>-->
 
 </head>
 <body>
 
 
 <!--导航条-->
-<div th:fragment="navigation">
-    <nav class="ui inverted segment attached m-padded-tp-mini">
-        <div class="ui container">
-            <div class="ui menu secondary inverted">
-                <a href="#" th:href="@{/}" class="active m-item item"><i class="home icon"></i>首页</a>
-                <a href="#" th:href="@{/tags}" class="m-item item"><i class="user icon"></i>我的</a>
-                <a href="#" th:href="@{/tags}" class="m-item item"><i class="clone outline icon"></i>分类</a>
-                <a href="#" th:href="@{/tags}" class="m-item item"><i class="heart icon"></i>收藏</a>
-                <a href="#" th:href="@{/person}" class="m-item item"><i class="heart icon"></i>主页</a>
-<!--                <a href="#" th:href="@{/about}" class="m-item item"><i class="info icon"></i>关于我</a>-->
-                <div class="right item" >
-                    <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
-                        <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                            <input style="color: white" type="text" name="query" placeholder="Search....">
-                            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+<div th:fragment="navigation" >
+    <div th:unless="${#strings.isEmpty(session.userExist)}">
+        <nav class="ui inverted segment attached m-padded-tp-mini">
+            <div class="ui container">
+                <div class="ui menu secondary inverted">
+                    <a href="#" th:href="@{/}" class="active m-item item"><i class="home icon"></i>首页</a>
+                    <a href="#" th:href="@{/tags}" class="m-item item"><i class="clone outline icon"></i>总类</a>
+                    <!--                <a href="#" th:href="@{/about}" class="m-item item"><i class="info icon"></i>关于我</a>-->
+                    <div class="right item" >
+                        <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+                            <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+                                <input style="color: white" type="text" name="query" placeholder="Search....">
+                                <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="right m-item menu">
+                        <div class="ui dropdown item">
+                            <div class="text">
+                                <!--                                <img class="ui avatar image" src="/static/images/backimg1.jpg" th:src="@{/images/backimg1.jpg}">-->
+                                <i class="user outline icon"></i>
+                                <span th:text="${session.user.uNickname}">meilun</span>
+                            </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a href="#" th:href="@{/tags}" class="m-item item"><i class="user icon"></i>我的博客</a>
+                                <a href="#" th:href="@{/tags}" class="m-item item"><i class="clone outline icon"></i>我的分类</a>
+                                <a href="#" th:href="@{/tags}" class="m-item item"><i class="heart icon"></i>我的收藏</a>
+                                <a href="#" th:href="@{/person}" class=" m-item item"><i class="archive icon"></i>后台</a>
+                                <a href="#" th:href="@{/user/exitLogin}" class=" item m-item"><i class="power off icon"></i>注销</a>
+                            </div>
                         </div>
-                    </form>
+                    </div>
+
                 </div>
-                <a href="#" th:href="@{/user/login}" class="right item m-item"><i class="user outline icon"></i>登录</a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
+    <div th:if="${#strings.isEmpty(session.userExist)}">
+        <nav class="ui inverted segment attached m-padded-tp-mini">
+            <div class="ui container">
+                <div class="ui menu secondary inverted">
+                    <a href="#" th:href="@{/}" class="active m-item item"><i class="home icon"></i>首页</a>
+                    <a href="#" th:href="@{/tags}" class="m-item item"><i class="clone outline icon"></i>分类</a>
+                    <div class="right item" >
+                        <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+                            <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+                                <input style="color: white" type="text" name="query" placeholder="Search....">
+                                <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                            </div>
+                        </form>
+                    </div>
+                    <a href="#" th:href="@{/user/login}" class="right item m-item"><i class="user outline icon"></i>登录</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
 </div>
 
 
@@ -109,6 +141,12 @@
             </div>
             <br/><br/><br/>
         </footer>
+
+        <script>
+            $('.ui.dropdown')
+                .dropdown()
+            ;
+        </script>
     </div>
 
 </footer>

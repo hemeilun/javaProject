@@ -44,6 +44,18 @@ public class TagsServiceImpl extends ServiceImpl<TagsMapper, Tags>
         return tags;
     }
 
+    @Override
+    public CommonPage<Tags> selectAllTags(long pageId) {
+
+        CommonPage<Tags> page = new CommonPage<>();
+        page.setSize(16);
+        page.setCurrent(pageId);
+        CommonPage<Tags> result = tagsMapper.selectPage(page,null);
+        result.DetailProcess();
+
+        return result;
+    }
+
 }
 
 

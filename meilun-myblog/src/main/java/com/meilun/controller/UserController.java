@@ -33,6 +33,13 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping("/exitLogin")
+    public String exitLogin(HttpSession session){
+        session.removeAttribute("user");
+        session.removeAttribute("userExist");
+        return "login";
+    }
+
 
     @PostMapping("/loginverify")
     public String login(User user, HttpServletRequest request, RedirectAttributes redirectAttributes){
@@ -70,6 +77,7 @@ public class UserController {
                 }else{
                     HttpSession session = request.getSession();
                     session.setAttribute("user",one);
+                    session.setAttribute("userExist","exist");
                     return "admin/person";
                 }
 

@@ -17,5 +17,7 @@ public interface TagsService extends IService<Tags> {
 //      public IPage<Tags> selectAllTagsByUid(QueryWrapper<Tags> queryWrapper);
 
     List<Tags> selectAllTagsByUidNotPage(long uid);
+
+    CommonPage<Tags> selectAllTags(long pageId);
 }
 

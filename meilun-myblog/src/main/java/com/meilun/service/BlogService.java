@@ -14,4 +14,5 @@ public interface BlogService extends IService<Blog> {
 
     public CommonPage<Blog> selectAllBlogNotOnlyMe(long pageId);
 
+    CommonPage<Blog> selectAllBlogByTagsId(long tid, long pageId);
 }

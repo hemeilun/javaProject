@@ -1,5 +1,6 @@
 package com.meilun.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.meilun.common.CommonPage;
 import com.meilun.entiey.Blog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -19,6 +20,7 @@ public interface BlogMapper extends BaseMapper<Blog> {
 
     public CommonPage<Blog> selectAllBlogNotOnlyMe(CommonPage<Blog> page);
 
+    CommonPage<Blog> selectAllBlogByTagsId(CommonPage<Blog> page, @Param("tid") long tid);
 }
 
 

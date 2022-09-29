@@ -3,11 +3,15 @@ package com.meilun.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.meilun.common.CommonPage;
 import com.meilun.entiey.Blog;
 import com.meilun.entiey.Tags;
 import com.meilun.entiey.User;
 import com.meilun.service.BlogService;
 import com.meilun.service.TagsService;
+import com.meilun.service.UserService;
+import com.meilun.utils.MarkdownUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +34,9 @@ public class BlogController {
 
     @Autowired
     TagsService tagsService;
+
+    @Autowired
+    UserService userService;
 
 
 
@@ -64,9 +71,24 @@ public class BlogController {
         System.out.println(pageBid);
 
         Blog blog = blogService.getById(pageBid);
-        System.out.println(blog);
 
-        reques.setAttribute("detailBlog",blog);
+        blog.setBViews(blog.getBViews()+1);
+        blogService.updateById(blog);
+
+        User user = userService.getOne(new QueryWrapper<User>().eq("u_id", blog.getBUserid()));
+        blog.setBUser(user);
+
+        Tags tag = tagsService.getOne(new QueryWrapper<Tags>().eq("t_id", blog.getBTagid()));
+        blog.setBTag(tag);
+
+//        System.out.println(blog);
+
+
+        Blog blog1 = new Blog();
+        BeanUtils.copyProperties(blog,blog1);
+        String bContent = blog1.getBContent();
+        blog1.setBContent(MarkdownUtils.markdownToHtmlExtensions(bContent));
+        reques.setAttribute("detailBlog",blog1);
 
         return "blog";
 
@@ -83,7 +105,9 @@ public class BlogController {
 
         for (int i = 0; i < list.size(); i++) {
             Tags tag = tagsService.getOne(new QueryWrapper<Tags>().eq("t_id", list.get(i).getBTagid()));
+//            User user1 = userService.getOne(new QueryWrapper<User>().eq("u_id", list.get(i).getBUserid()));
             tagsIPage.getRecords().get(i).setBTag(tag);
+//            tagsIPage.getRecords().get(i).setBUser(user1);
         }
 
         request.setAttribute("blogpage",tagsIPage);
@@ -141,6 +165,37 @@ public class BlogController {
 
         redirectAttributes.addFlashAttribute("errormessage","添加成功,等待管理员审核完成后即可上线");
         return "redirect:/blog/admin";
+    }
+
+
+    @RequestMapping("/searchByTagsId/{tagId}")
+    public String searchByTagsId(@PathVariable("tagId") long tagId,HttpServletRequest request){
+
+        toTagsIdProcess(request,tagId,1);
+        return "blogByTagsId";
+    }
+
+    @RequestMapping("/searchByTagsId/{tagId}/{pageId}")
+    public String searchByTagsId(@PathVariable("tagId") long tagId,@PathVariable("pageId") long pageId,HttpServletRequest request){
+
+        toTagsIdProcess(request,tagId,pageId);
+        return "blogByTagsId";
+    }
+
+    public void toTagsIdProcess(HttpServletRequest request,long tid,long page){
+
+        CommonPage<Blog> tagsIPage = blogService.selectAllBlogByTagsId(tid,page);
+        long total = tagsIPage.getTotal();
+        List<Blog> list = tagsIPage.getRecords();
+
+        for (int i = 0; i < list.size(); i++) {
+//            Tags tag = tagsService.getOne(new QueryWrapper<Tags>().eq("t_id", list.get(i).getBTagid()));
+            User user1 = userService.getOne(new QueryWrapper<User>().eq("u_id", list.get(i).getBUserid()));
+
+            tagsIPage.getRecords().get(i).setBUser(user1);
+        }
+        request.setAttribute("thisTagsId",tid);
+        request.setAttribute("indexpage",tagsIPage);
     }
 
 

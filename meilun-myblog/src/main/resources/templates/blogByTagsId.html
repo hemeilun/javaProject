@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>分类</title>
     <link th:include="common :: commonLink">
 </head>
 <body>
@@ -11,11 +11,13 @@
 <!--导航-->
 <div th:include="common :: navigation"></div>
 
-<br/><br/><br/>
+<br/><br/>
 
 <!--中间内容-->
 
 <div class="ui container aligned center" style="text-align: center;width: 80%">
+
+<h2 th:text="分类"></h2>
 <div th:each="page,pageStat: ${indexpage.records}">
     <div class="ui aligned center m-text-show m-content-show circular">
 <!--        <div>-->
@@ -49,13 +51,13 @@
 <div class="ui container center aligned" style="width:100%; float: left">
     <div class="pagination">
         <!--                      <a href="#" th:text="{}"></a>-->
-        <a href="#" th:href="@{'/'+${indexpage.current-1}}" th:if="${indexpage.isHavePre == true}">«</a>
+        <a href="#" th:href="@{'/blog/searchByTagsId/'+${thisTagsId}+'/'+${indexpage.current-1}}" th:if="${indexpage.isHavePre == true}">«</a>
 
         <i th:each="tagpage : ${indexpage.navigation}">
-            <a href="#" th:href="@{'/'+${tagpage}}" th:if = "${tagpage == indexpage.current}" class="active" th:text="${tagpage}">1</a>
-            <a href="#" th:href="@{'/'+${tagpage}}" th:if = "${tagpage != indexpage.current}" th:text="${tagpage}">1</a>
+            <a href="#" th:href="@{'/blog/searchByTagsId/'+${thisTagsId}+'/'+${tagpage}}" th:if = "${tagpage == indexpage.current}" class="active" th:text="${tagpage}">1</a>
+            <a href="#" th:href="@{'/blog/searchByTagsId/'+${thisTagsId}+'/'+${tagpage}}" th:if = "${tagpage != indexpage.current}" th:text="${tagpage}">1</a>
         </i>
-        <a href="#" th:if="${indexpage.isHaveNext == true}" th:href="@{'/'+${indexpage.current+1}}">»</a>
+        <a href="#" th:if="${indexpage.isHaveNext == true}" th:href="@{'/blog/searchByTagsId/'+${thisTagsId}+'/'+${indexpage.current+1}}">»</a>
 
         <a href="#" th:text="|共 ${indexpage.totalpage} 页|">»</a>
 
