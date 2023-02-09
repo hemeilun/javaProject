@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script> -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>a的值是:{{numbers.a}}</h3>
+        <button @click = "numbers.a++">点我a+1</button>
+        <h3>b的值是:{{numbers.b}}</h3>
+        <button @click = "numbers.b++">点我b+1</button>
+    </div>
+
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                numbers:{
+                    a:1,
+                    b:1
+                }
+            },
+            watch:{
+                'numbers.a'(){
+                        console.log('a的值变了')
+                },
+                'numbers.b'(){
+                        console.log('b的值变了')
+                },
+                numbers:{
+                    deep:true,
+                    handler(){
+                        console.log('numbers的值变了')
+                    }
+                }
+            }
+
+        })
+
+        //不直接使用watch
+        // vm.$watch('isHot',{
+        //         //与上面的内容相同
+        // })
+        
+        //不直接使用watch，function相当于handler
+        // vm.$watch('isHot',function(){
+        //         //与上面的内容相同
+        // })
+    </script>
+    
+</body>
+</html>

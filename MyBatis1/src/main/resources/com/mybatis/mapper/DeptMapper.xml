@@ -16,7 +16,6 @@
 
     <!--public Dept findDeptById(@Param("did") int id);-->
     <select id="findDeptById" resultMap="deptStepMap">
-          <!--出错三：表名写成emp，导致查询错误-->
           select * from dept where did = #{did}
     </select>
 

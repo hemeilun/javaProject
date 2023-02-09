@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script> -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div @click="showInfo">
+           <a href="https://meiluna.cn" @click.prevent.stop="showInfo">点我跳转</a>
+        </div>
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                name: 'vue'
+            },
+            methods:{
+                showInfo(e){
+                    alert('弹弹弹....')
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

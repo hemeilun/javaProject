@@ -11,6 +11,5 @@ public interface EmpMapper {
     /**
      * 查询员工信息
      */
-    //出错二：没有用List接收
     public List<Emp> findEmpByDeptId(@Param("did") int id);
 }

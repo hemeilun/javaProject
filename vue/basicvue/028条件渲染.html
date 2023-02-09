@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script> -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h2 >当前值为:{{n%4}}</h2>
+       <button @click="n++">n++</button>
+
+       <h2 v-show="n%4 === 0">v-show展示</h2>
+       <h2 v-if="n%4 === 0">v-if展示</h2>
+       <h2 v-else-if="n%4 === 1">v-else-if 1 展示</h2>
+       <h2 v-else>v-else展示</h2>
+
+       <template v-if="n===1">
+           <h2>美伦</h2>
+           <h2>meilun</h2>
+       </template>
+    </div>
+
+    <script>
+        const vm = new Vue({
+             el:'#app',
+             data:{
+                n:0
+             },
+             methods:{
+                
+             }
+        })
+    </script>
+    
+</body>
+</html>

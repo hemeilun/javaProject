@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script> -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>今天天气很{{info}}</h2>
+        <button @click="changeWeather">切换</button>
+    </div>
+
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                isHot:true
+            },
+            methods: {
+                changeWeather(){
+                    this.isHot = !this.isHot
+                }
+            },
+            computed:{
+                info(){
+                    return this.isHot ? '炎热':'凉爽'
+                }
+            },
+            watch:{
+                isHot:{
+                    immediate:true, //初始化时让handler调用一下
+                    //handler调用时机：当监听到的属性发生修改
+                    handler(newValue,oldValue){
+                        console.log('isHot被修改了',newValue,oldValue)
+                    }
+                }
+            }
+
+        })
+
+        //不直接使用watch
+        // vm.$watch('isHot',{
+        //         //与上面的内容相同
+        // })
+        
+    </script>
+    
+</body>
+</html>
